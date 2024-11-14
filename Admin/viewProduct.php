@@ -50,8 +50,8 @@ $row = mysqli_query($connect, $select);
                                         <td> <img src="product_images/<?php echo $data['product_image']?> " alt="error" width="100px"></td>
                                         <td> <?php echo $data['category_name']?></td>
                                         <td> <?php echo $data['brand_name']?></td>
-                                        <td> <a href="viewCategory.php?i=<?php echo $data['product_id']?>" class="btn btn-warning">Edit</a> </td>
-                                        <td> <a href="viewCategory.php?j=<?php echo $data['product_id']?>" class="btn btn-danger">Delete</a> </td>
+                                        <td> <a href="editProduct.php?i=<?php echo $data['product_id']?>" class="btn btn-warning">Edit</a> </td>
+                                        <td> <a href="editProduct.php?j=<?php echo $data['product_id']?>" class="btn btn-danger">Delete</a> </td>
                                     </tr>
 
                                <?php }?>
