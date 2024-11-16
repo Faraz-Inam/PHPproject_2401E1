@@ -1,6 +1,6 @@
 <?php 
 include("header.php");
-include("Admin/connection.php");
+include("../Admin/connection.php");
 
 if(isset($_GET['id'])){
     $p_id = $_GET['id'];
@@ -21,7 +21,7 @@ if(isset($_GET['id'])){
            <?php $fetch = mysqli_fetch_assoc($query) ?>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                     <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                        <img class="img-fluid w-100" src="Admin/product_images/<?php echo $fetch['product_image'] ?>">
+                        <img class="img-fluid w-100" src="../Admin/product_images/<?php echo $fetch['product_image'] ?>">
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">

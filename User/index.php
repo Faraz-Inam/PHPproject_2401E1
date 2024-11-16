@@ -1,6 +1,6 @@
 <?php 
 include("header.php");
-include("Admin/connection.php");
+include("../Admin/connection.php");
 
 $products = "SELECT * FROM `products`";
 $query = mysqli_query($connect, $products);
@@ -151,7 +151,7 @@ $query = mysqli_query($connect, $products);
                         <div class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                             <div class="product-item">
                                 <div class="position-relative bg-light overflow-hidden">
-                                    <img class="" width="100%" height="200px" src="Admin/product_images/<?php echo $fetch['product_image'] ?>" alt="Error">
+                                    <img class="" width="100%" height="200px" src="../Admin/product_images/<?php echo $fetch['product_image'] ?>" alt="Error">
                                     <div class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">New</div>
                                 </div>
                                 <div class="text-center p-4">
