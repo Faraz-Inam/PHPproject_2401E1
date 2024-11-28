@@ -1,3 +1,16 @@
+<?php 
+session_start();
+include '../Admin/connection.php';
+if(!isset($_SESSION['username'])){
+    header("location: ../login.php");
+}
+
+if (isset($_SESSION['userrole']) && $_SESSION['userrole'] == 1) {
+    header('Location: ../Admin/index.php');
+    exit(); // Make sure no further code is executed after the redirect
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

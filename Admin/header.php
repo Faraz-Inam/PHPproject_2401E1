@@ -1,3 +1,16 @@
+<?php 
+include 'connection.php';
+session_start();
+if(!isset($_SESSION['username'])){
+    header("location: ../login.php");
+}
+
+if (isset($_SESSION['userrole']) && $_SESSION['userrole'] == 2) {
+    header('Location: ../User/index.php');
+    exit(); // Make sure no further code is executed after the redirect
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
