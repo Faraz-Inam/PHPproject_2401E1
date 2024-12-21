@@ -1,7 +1,7 @@
 <?php 
-include 'connection.php';
-// include ('connection.php');
+include 'Admin/connection.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,48 +11,51 @@ include 'connection.php';
 </head>
 <body>
     <form action="" method="post">
-        <label for="">First Name</label>
-        <input type="text" name="fname"> <br>
-        <label for="">Last Name</label>
-        <input type="text" name="lname"> <br>
+
+        <label for="">Username</label>
+        <input type="text" name="uname"> <br>
+
+        <label for="">Date Of Birth</label>
+        <input type="date" name="dob"> <br>
+
+        <label for="">Gender</label>
         <select name="gender" id="">
-            <option disabled selected>Select</option>
+            <option disabled selected>Select Gender</option>
             <option value="M">Male</option>
             <option value="F">Female</option>
         </select> <br>
-        <label for="">DOB</label>
-        <input type="date" name="dob"> <br>
-        <label for="">Username</label>
-        <input type="text" name="uname"> <br>
+
         <label for="">Email</label>
         <input type="text" name="email"> <br>
+
         <label for="">Password</label>
-        <input type="text" name="pass"> <br>
-        <button type="submit" name="signupBtn">SIgn Up!</button>
+        <input type="password" name="pass"> <br>
+
+        <button type="submit" name="signupBtn">Sign Up!</button>
+        Already have an Account?<a href="login.php">Log In</a>
     </form>
 </body>
 </html>
 
 <?php 
 if(isset($_POST['signupBtn'])){
-    $fname = $_POST['fname'];
-    $lname = $_POST['lname'];
-    $gender = $_POST['gender'];
-    $dob = $_POST['dob'];
     $uname = $_POST['uname'];
+    $dob = $_POST['dob'];
+    $gender = $_POST['gender'];
     $email = $_POST['email'];
     $pass = $_POST['pass'];
     $role_id = 2;
 
-    $insert = "INSERT INTO `users` (`firstname`, `lastname`, `gender`, `date_of_birth`, `username`, `email`, `password`, `role_id`)
-    VALUES ('$fname', '$lname', '$gender', '$dob', '$uname', '$email', '$pass', '$role_id')";
-    $q = mysqli_query($connect, $insert);
+   $insert = "INSERT INTO users(username, date_of_birth, gender, email, password, role_id)
+   VALUES('$uname', '$dob', '$gender', '$email', '$pass', '$role_id')";
+   $q = mysqli_query($connect, $insert);
 
-    if($q){
-        echo "<script>
-        alert('account created');
-        window.location.href = 'signin.php';
-        </script>";
-    }
+   if($q){
+    echo "<script> 
+    alert('Account Created');
+    window.location.href = 'login.php';
+    </script>";
+   }
 }
+
 ?>

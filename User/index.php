@@ -2,7 +2,7 @@
 include("header.php");
 include("../Admin/connection.php");
 
-$products = "SELECT * FROM `products`";
+$products = "SELECT * FROM `products` LIMIT 8";
 $query = mysqli_query($connect, $products);
 
 ?>

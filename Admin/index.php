@@ -1,5 +1,18 @@
 <?php 
  include("header.php");
+
+ $count_cat = "SELECT COUNT(*) AS cat FROM categories";
+ $c_q = mysqli_query($connect, $count_cat);
+ $f_c = mysqli_fetch_assoc($c_q);
+
+ $count_brand = "SELECT COUNT(*) AS brand FROM brands";
+ $b_q = mysqli_query($connect, $count_brand);
+ $f_b = mysqli_fetch_assoc($b_q);
+
+ $count_pro = "SELECT COUNT(*) AS pro FROM products";
+ $p_q = mysqli_query($connect, $count_pro);
+ $f_p = mysqli_fetch_assoc($p_q);
+
     ?>
 
             <!-- Sale & Revenue Start -->
@@ -18,8 +31,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-bar fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Categories</p>
+                                <h6 class="mb-0"><?php echo $f_c['cat'] ?></h6>
                             </div>
                         </div>
                     </div>
@@ -27,8 +40,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Today Brands</p>
+                                <h6 class="mb-0"><?php echo $f_b['brand'] ?></h6>
                             </div>
                         </div>
                     </div>
@@ -36,8 +49,8 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-pie fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <p class="mb-2">Total Products</p>
+                                <h6 class="mb-0"><?php echo $f_p['pro'] ?></h6>
                             </div>
                         </div>
                     </div>

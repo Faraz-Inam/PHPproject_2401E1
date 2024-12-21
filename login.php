@@ -18,6 +18,7 @@ if(isset($_POST['loginBtn'])){
 
 if($row_count == 1){
    $_SESSION['username'] =  $fetch['username'];
+   $_SESSION['useremail'] =  $fetch['email'];
    $_SESSION['userrole'] =  $fetch['role_id'];
 
    if($fetch['role_id'] == 1){
@@ -84,8 +85,8 @@ else{ ?>
         <!-- Sign In Start -->
         <div class="container-fluid">
             <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-                <form action="" method="post">
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <form action="" method="post">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="index.html" class="">
@@ -111,8 +112,8 @@ else{ ?>
                         <button name="loginBtn" type="submit" class="btn btn-primary py-3 w-100 mb-4">Sign In</button>
                         <p class="text-center mb-0">Don't have an Account? <a href="signup.php">Sign Up</a></p>
                     </div>
-                </div>
                 </form>
+                </div>
             </div>
         </div>
         <!-- Sign In End -->

@@ -1,8 +1,9 @@
 <?php 
-include 'connection.php';
+include 'Admin/connection.php';
 session_start();
 session_destroy();
+session_unset();
 
-header("location: signin.php");
+header("location: login.php");
 exit();
 ?>

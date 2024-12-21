@@ -19,11 +19,11 @@ $row = mysqli_query($connect, $select);
             <div class="container-fluid pt-4 px-4">
                 <div class="row g-4">
             
-                    <div class="col-sm-12 col-xl-6">
+                    <div class="col-sm-12 col-xl-12">
                         <div class="bg-light rounded h-100 p-4">
                             <h6 class="mb-4">View Category</h6>
                             <table class="table table-hover">
-                                <thead>
+                                <thead class="bg-dark">
                                     <tr>
                                         <th scope="col">Product Id</th>
                                         <th scope="col">Product Name</th>

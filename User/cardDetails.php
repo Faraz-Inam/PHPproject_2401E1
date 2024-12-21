@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
                     <p><i class="fa fa-check text-primary me-3"></i> Price: <?php echo $fetch['product_price'] ?></p>
                     <p><i class="fa fa-check text-primary me-3"></i>Model: <?php echo $fetch['product_model'] ?></p>
                     <p><i class="fa fa-check text-primary me-3"></i>Specification: <?php echo $fetch['product_specification'] ?></p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Buy Now</a>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="mail.php?id=<?php echo $fetch['product_id'] ?>">Buy Now</a>
                     <a class="btn btn-warning rounded-pill py-3 px-5 mt-3" href="">Add to Cart</a>
                 </div>
                 <?php  ?>
