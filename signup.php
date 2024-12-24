@@ -45,17 +45,31 @@ if(isset($_POST['signupBtn'])){
     $email = $_POST['email'];
     $pass = $_POST['pass'];
     $role_id = 2;
+    $encPass = password_hash($pass, PASSWORD_BCRYPT);
 
-   $insert = "INSERT INTO users(username, date_of_birth, gender, email, password, role_id)
-   VALUES('$uname', '$dob', '$gender', '$email', '$pass', '$role_id')";
-   $q = mysqli_query($connect, $insert);
+    $sel = "SELECT * FROM users WHERE username = '$uname'";
+    $q = mysqli_query($connect, $sel);
+    $row_count = mysqli_num_rows($q);
 
-   if($q){
-    echo "<script> 
-    alert('Account Created');
-    window.location.href = 'login.php';
-    </script>";
-   }
+    if($row_count > 0){
+       echo "<script>
+        alert('Username already Exist');
+        </script>";
+    }
+
+    else{
+        $insert = "INSERT INTO users(username, date_of_birth, gender, email, password, role_id)
+        VALUES('$uname', '$dob', '$gender', '$email', '$encPass', '$role_id')";
+        $q = mysqli_query($connect, $insert);
+     
+        if($q){
+         echo "<script> 
+         alert('Account Created');
+         window.location.href = 'login.php';
+         </script>";
+        }
+    }
+
 }
 
 ?>

@@ -10,12 +10,14 @@ if(isset($_POST['loginBtn'])){
     $uname = $_POST['uname'];
     $pass = $_POST['pass'];
 
-   $check =  "SELECT * FROM users WHERE username = '$uname' AND password = '$pass'";
+   $check =  "SELECT * FROM users WHERE username = '$uname'";
    $q = mysqli_query($connect, $check);
    $row_count = mysqli_num_rows($q);
    $fetch = mysqli_fetch_assoc($q);
+   $encPass = $fetch['password'];
 //    echo $row_count;
 
+if(password_verify($pass, $encPass)){
 if($row_count == 1){
    $_SESSION['username'] =  $fetch['username'];
    $_SESSION['useremail'] =  $fetch['email'];
@@ -27,6 +29,7 @@ if($row_count == 1){
    else if($fetch['role_id'] == 2){
     header("location: User/index.php");
    }
+}
 }
 else{ ?>
     <div class="alert alert-danger" role="alert">
